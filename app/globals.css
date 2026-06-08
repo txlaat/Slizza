@@ -1,26 +1,245 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../app";
+@source "../components";
+@source "../lib";
+@source "../hooks";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Slizaa design system — warm wood-fired pizza theme.
+ * Tomato red, melted-cheese gold, charred crust, warm cream paper.
+ * All colors use oklch.
+ */
 
 @theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-charcoal: var(--charcoal);
+  --color-ember: var(--ember);
+  --color-cheese: var(--cheese);
+  --color-basil: var(--basil);
+  --color-crust: var(--crust);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Bricolage Grotesque", "Poppins", sans-serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 1rem;
+
+  /* Warm cream paper background */
+  --background: oklch(0.97 0.018 78);
+  --foreground: oklch(0.24 0.04 40);
+
+  --card: oklch(0.99 0.012 78);
+  --card-foreground: oklch(0.24 0.04 40);
+  --popover: oklch(0.99 0.012 78);
+  --popover-foreground: oklch(0.24 0.04 40);
+
+  /* Tomato red */
+  --primary: oklch(0.58 0.21 27);
+  --primary-foreground: oklch(0.98 0.012 78);
+
+  /* Warm toasted tan */
+  --secondary: oklch(0.92 0.04 75);
+  --secondary-foreground: oklch(0.32 0.06 45);
+
+  --muted: oklch(0.93 0.025 78);
+  --muted-foreground: oklch(0.5 0.04 50);
+
+  /* Cheese gold accent */
+  --accent: oklch(0.82 0.16 78);
+  --accent-foreground: oklch(0.28 0.06 45);
+
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.98 0.012 78);
+
+  --border: oklch(0.88 0.03 70);
+  --input: oklch(0.88 0.03 70);
+  --ring: oklch(0.58 0.21 27);
+
+  /* Brand-specific tokens */
+  --charcoal: oklch(0.22 0.025 40);
+  --ember: oklch(0.66 0.23 38);
+  --cheese: oklch(0.82 0.16 78);
+  --basil: oklch(0.55 0.13 145);
+  --crust: oklch(0.72 0.11 65);
+
+  --chart-1: oklch(0.58 0.21 27);
+  --chart-2: oklch(0.82 0.16 78);
+  --chart-3: oklch(0.55 0.13 145);
+  --chart-4: oklch(0.66 0.23 38);
+  --chart-5: oklch(0.72 0.11 65);
+
+  --sidebar: oklch(0.99 0.012 78);
+  --sidebar-foreground: oklch(0.24 0.04 40);
+  --sidebar-primary: oklch(0.58 0.21 27);
+  --sidebar-primary-foreground: oklch(0.98 0.012 78);
+  --sidebar-accent: oklch(0.92 0.04 75);
+  --sidebar-accent-foreground: oklch(0.32 0.06 45);
+  --sidebar-border: oklch(0.88 0.03 70);
+  --sidebar-ring: oklch(0.58 0.21 27);
+
+  /* Gradients & shadows */
+  --gradient-ember: linear-gradient(135deg, oklch(0.66 0.23 38), oklch(0.58 0.21 27));
+  --gradient-cheese: linear-gradient(135deg, oklch(0.86 0.15 90), oklch(0.78 0.17 70));
+  --gradient-oven: radial-gradient(circle at 50% 120%, oklch(0.7 0.22 45), oklch(0.3 0.08 35) 60%, oklch(0.18 0.03 35));
+  --shadow-warm: 0 24px 60px -20px color-mix(in oklab, oklch(0.58 0.21 27) 45%, transparent);
+  --shadow-soft: 0 12px 40px -16px color-mix(in oklab, oklch(0.22 0.025 40) 30%, transparent);
+}
+
+.dark {
+  --background: oklch(0.18 0.02 40);
+  --foreground: oklch(0.96 0.015 78);
+  --card: oklch(0.22 0.025 40);
+  --card-foreground: oklch(0.96 0.015 78);
+  --popover: oklch(0.22 0.025 40);
+  --popover-foreground: oklch(0.96 0.015 78);
+  --primary: oklch(0.64 0.22 30);
+  --primary-foreground: oklch(0.98 0.012 78);
+  --secondary: oklch(0.3 0.04 45);
+  --secondary-foreground: oklch(0.96 0.015 78);
+  --muted: oklch(0.28 0.03 42);
+  --muted-foreground: oklch(0.7 0.04 60);
+  --accent: oklch(0.78 0.16 78);
+  --accent-foreground: oklch(0.22 0.04 40);
+  --destructive: oklch(0.64 0.22 30);
+  --destructive-foreground: oklch(0.98 0.012 78);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.64 0.22 30);
+  --charcoal: oklch(0.14 0.02 40);
+  --ember: oklch(0.68 0.23 38);
+  --cheese: oklch(0.82 0.16 78);
+  --basil: oklch(0.62 0.14 145);
+  --crust: oklch(0.72 0.11 65);
+  --sidebar: oklch(0.22 0.025 40);
+  --sidebar-foreground: oklch(0.96 0.015 78);
+  --sidebar-primary: oklch(0.64 0.22 30);
+  --sidebar-primary-foreground: oklch(0.98 0.012 78);
+  --sidebar-accent: oklch(0.3 0.04 45);
+  --sidebar-accent-foreground: oklch(0.96 0.015 78);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.64 0.22 30);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-gradient-ember {
+    background: var(--gradient-ember);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-ember {
+    background: var(--gradient-ember);
+  }
+  .bg-gradient-cheese {
+    background: var(--gradient-cheese);
+  }
+  .bg-gradient-oven {
+    background: var(--gradient-oven);
+  }
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .drop-shadow-pizza {
+    filter: drop-shadow(0 30px 40px color-mix(in oklab, oklch(0.22 0.025 40) 40%, transparent));
+  }
+}
+
+/* Slow continuous spin used by ambient pizzas */
+@keyframes slizaa-spin {
+  to { transform: rotate(360deg); }
+}
+.animate-slizaa-spin {
+  animation: slizaa-spin 40s linear infinite;
+}
+
+/* Rising flame flicker */
+@keyframes flame-flicker {
+  0%, 100% { transform: translateY(0) scaleY(1) scaleX(1); opacity: 0.95; }
+  50% { transform: translateY(-6px) scaleY(1.15) scaleX(0.92); opacity: 1; }
+}
+.animate-flame {
+  animation: flame-flicker 0.6s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+/* Steam rising */
+@keyframes steam-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  30% { opacity: 0.6; }
+  100% { transform: translateY(-40px) scale(1.6); opacity: 0; }
+}
+.animate-steam {
+  animation: steam-rise 2.4s ease-out infinite;
+}
+
+/* Floating bob */
+@keyframes float-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.animate-float {
+  animation: float-bob 5s ease-in-out infinite;
 }
