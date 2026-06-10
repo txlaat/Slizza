@@ -5,8 +5,8 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
-  title: "Slizaa — Wood-Fired Pizza, Built Your Way",
-  description: "Slizaa serves bold wood-fired pizzas with cinematic flavour. Order signature pies or build your own from scratch and watch it hit the oven.",
+  title: "Slizza — Wood-Fired Pizza, Built Your Way",
+  description: "Slizza serves bold wood-fired pizzas with cinematic flavour. Order signature pies or build your own from scratch and watch it hit the oven.",
 };
 
 export default function RootLayout({

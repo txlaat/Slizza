@@ -24,7 +24,7 @@ export function SiteHeader() {
             <Pizza className="h-5 w-5" />
           </span>
           <span className="font-display text-2xl font-extrabold tracking-tight">
-            slizaa
+            slizza
           </span>
         </Link>
 

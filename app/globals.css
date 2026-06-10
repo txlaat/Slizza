@@ -8,7 +8,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Slizaa design system — warm wood-fired pizza theme.
+ * Slizza design system — warm wood-fired pizza theme.
  * Tomato red, melted-cheese gold, charred crust, warm cream paper.
  * All colors use oklch.
  */
@@ -208,11 +208,17 @@
 }
 
 /* Slow continuous spin used by ambient pizzas */
-@keyframes slizaa-spin {
-  to { transform: rotate(360deg); }
+@keyframes slizza-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-.animate-slizaa-spin {
-  animation: slizaa-spin 40s linear infinite;
+
+.animate-slizza-spin {
+  animation: slizza-spin 40s linear infinite;
 }
 
 /* Rising flame flicker */

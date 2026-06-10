@@ -78,7 +78,7 @@ export function PizzaVisualizer({ selected, className, isBaking }: PizzaVisualiz
   const veggies = selected.filter((id) => id.startsWith("veg-"));
 
   return (
-    <div className={cn("relative h-full w-full", !isBaking && "animate-slizaa-spin", className)}>
+    <div className={cn("relative h-full w-full", !isBaking && "animate-slizza-spin", className)}>
       {/* Dough or Base Sauce Image */}
       <img
         src={sauceId && SAUCE_IMAGES[sauceId] ? SAUCE_IMAGES[sauceId] : doughImg}

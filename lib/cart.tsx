@@ -38,7 +38,7 @@ interface CartContextValue {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const STORAGE_KEY = "slizaa-cart-v1";
+const STORAGE_KEY = "slizza-cart-v1";
 
 function newLineId() {
   return `line_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;

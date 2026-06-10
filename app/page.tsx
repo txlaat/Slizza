@@ -44,7 +44,7 @@ function Hero() {
             <span className="text-gradient-ember"> little theatre.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-md text-lg text-muted-foreground md:mx-0">
-            Welcome to Slizaa. Pick a signature pie or build your own from the
+            Welcome to Slizza. Pick a signature pie or build your own from the
             dough up — then watch it spin, sizzle and hit the oven.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 md:justify-start">
@@ -68,7 +68,7 @@ function Hero() {
             <div className="absolute inset-0 -z-10 rounded-full bg-gradient-ember opacity-20 blur-3xl" />
             <img
               src={heroPizza}
-              alt="Slizaa signature pepperoni pizza"
+              alt="Slizza signature pepperoni pizza"
               width={1024}
               height={1024}
               className="animate-float w-[20rem] drop-shadow-pizza sm:w-[26rem]"
@@ -280,7 +280,7 @@ function BuildCta() {
             loading="lazy"
             width={1024}
             height={1024}
-            className="animate-slizaa-spin mx-auto w-40"
+            className="animate-slizza-spin mx-auto w-40"
           />
         </div>
         <h2 className="mt-6 font-display text-4xl font-extrabold sm:text-5xl">

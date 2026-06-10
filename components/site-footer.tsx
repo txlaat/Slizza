@@ -11,7 +11,7 @@ export function SiteFooter() {
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-ember text-primary-foreground">
               <Pizza className="h-5 w-5" />
             </span>
-            <span className="font-display text-2xl font-extrabold">slizaa</span>
+            <span className="font-display text-2xl font-extrabold">slizza</span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-background/70">
             Wood-fired pizza with a bit of theatre. Built fresh, fired hot, delivered fast.
@@ -36,12 +36,12 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm text-background/70">
             <li>Open daily · 11am – 11pm</li>
             <li>12 Forno Street, Flavortown</li>
-            <li>hello@slizaa.pizza</li>
+            <li>hello@slizza.pizza</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-background/10 py-5 text-center text-xs text-background/50">
-        © {new Date().getFullYear()} Slizaa. Made with extra cheese.
+        © {new Date().getFullYear()} Slizza. Made with extra cheese.
       </div>
     </footer>
   );
